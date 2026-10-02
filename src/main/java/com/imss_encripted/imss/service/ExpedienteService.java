@@ -24,11 +24,6 @@ import java.util.Base64;
 public class ExpedienteService {
 
     /*
-     * Institución que representa este simulador.
-     */
-    private static final String INSTITUCION = "IMSS";
-
-    /*
      * Expediente utilizado temporalmente para las pruebas.
      */
     private static final String EXPEDIENTE_PATH =
@@ -51,7 +46,6 @@ public class ExpedienteService {
             ExpedienteRequestDto request) throws Exception {
 
         log.info("======================================");
-        log.info("Solicitud recibida por {}", INSTITUCION);
         log.info("TRACE ID: {}", traceId);
         log.info("SOLICITANTE: {}", solicitante);
         log.info("CURP: {}", request.getCurpPaciente());
@@ -83,7 +77,7 @@ public class ExpedienteService {
          */
         return cifrarExpediente(
                 traceId,
-                INSTITUCION,
+                request.getInstitucion(),
                 solicitante,
                 requesterPublicKeyBytes,
                 expediente
